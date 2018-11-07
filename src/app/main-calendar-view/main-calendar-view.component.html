@@ -2,13 +2,13 @@
   <div class="header-grid">
     <h1 class="text-center title">Meals</h1>
     <div class="buttons text-right">
-      <button class="mr-5  btn-lg btn-warning rounded">Edit Meal</button>
-      <button class="mr-5  btn-lg btn-success rounded">Add Meal</button>
+      <button class="mr-5  btn-lg btn-warning rounded">Edit</button>
+      <button class="mr-5  btn-lg btn-success rounded">Add</button>
     </div>
   </div>
   <div class="calendar-grid mt-4">
     <div *ngFor="let day of week">
-      <app-calendar-day-component [day]='day'></app-calendar-day-component>
+      <app-calendar-day-component class="text-center" [day]='day'></app-calendar-day-component>
     </div>
   </div>
 </div>

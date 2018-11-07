@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainCalendarViewComponent implements OnInit {
 
-  week: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  week: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Snacks'];
   constructor() { }
 
   ngOnInit() {
