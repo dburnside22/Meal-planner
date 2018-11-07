@@ -4,15 +4,8 @@
 
 .header-grid{
     margin-top: 10%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    .title {
-        grid-column: 2;
-    }
-    .buttons {
-        grid-column: 3;
-        font-size: 30px;
+    input {
+        width: 80%;
     }
 }
 
