@@ -1,3 +1,14 @@
 .container-fluid {
     height: 100vh;
 }
+
+.header{
+    margin-top: 10%;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    overflow-x: scroll;
+    height: 220px;
+}
