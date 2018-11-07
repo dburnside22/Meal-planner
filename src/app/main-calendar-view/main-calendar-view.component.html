@@ -1,5 +1,11 @@
 <div class="container-fluid">
-  <h1 class="text-center header">Meals</h1>
+  <div class="header-grid">
+    <h1 class="text-center title">Meals</h1>
+    <div class="buttons text-right">
+      <button class="mr-5  btn-lg btn-warning rounded">Edit Meal</button>
+      <button class="mr-5  btn-lg btn-success rounded">Add Meal</button>
+    </div>
+  </div>
   <div class="calendar-grid mt-4">
     <div *ngFor="let day of week">
       <app-calendar-day-component [day]='day'></app-calendar-day-component>
