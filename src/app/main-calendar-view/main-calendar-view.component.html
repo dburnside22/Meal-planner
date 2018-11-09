@@ -1,9 +1,9 @@
 <div class="container-fluid">
-  <div class="header-grid">
-    <h1 class="text-center title">Meals</h1>
-    <input class="text-center" type="text">
+  <div class="header-grid text-center">
+    <h1 class="title">Meals</h1>
+    <input class="search-bar pl-3" type="text">
   </div>
-  <div class="calendar-grid mt-4">
+  <div class="calendar-grid mt-2">
     <div *ngFor="let day of week">
       <app-calendar-day-component class="text-center" [day]='day'></app-calendar-day-component>
     </div>
