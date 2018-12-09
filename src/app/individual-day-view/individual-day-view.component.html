@@ -1,0 +1,14 @@
+<div class="container-fluid border border-dark mt-3">
+  <h4 class="title m-0 pb-3 pt-3 border-bottom border-dark text-center rounded" (click)="openDay()">{{day}}</h4> 
+  <div class="body">
+      <div [ngClass]="isBoxSelected('breakfast')" class="border border-secondary rounded" (click)="toggleSelect('breakfast')">
+          <p class="add-text text-center bg-success">Add</p>
+      </div>
+      <div [ngClass]="isBoxSelected('lunch')" class="border border-secondary rounded" (click)="toggleSelect('lunch')">
+          <p class="add-text text-center bg-success">Add</p>
+      </div>
+      <div [ngClass]="isBoxSelected('dinner')" class="border border-secondary rounded" (click)="toggleSelect('dinner')">
+          <p class="add-text text-center bg-success">Add</p>
+      </div>
+  </div>
+</div>
