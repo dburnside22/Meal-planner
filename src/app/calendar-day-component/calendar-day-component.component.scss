@@ -1,6 +1,7 @@
 .container-fluid {
-    height: 95%;
+    height: 300px;
     border-radius: 35px;
+    width: 400px;
 }
 
 .body {
@@ -25,4 +26,20 @@
 .add-text:hover {
     opacity: 1;
     color: white;
+}
+
+.title:hover {
+    text-decoration: underline;
+}
+
+.border.border-success {
+    border: 2px solid green !important; 
+    background-color: lightgreen !important;
+}
+
+.meal-text {
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+    padding-top: 10px;
 }

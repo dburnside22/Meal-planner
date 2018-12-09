@@ -1,14 +1,17 @@
-<div class="container-fluid border border-dark mt-5">
-    <h4 class="title m-0 pb-3 pt-3 border-bottom border-dark text-center rounded">{{day}}</h4>
+<div class="container-fluid border border-dark">
+    <h4 class="title m-0 pb-3 pt-3 border-bottom border-dark text-center rounded" (click)="openDay()">{{meal.day}}</h4>
     <div class="body">
-        <div class="border border-secondary rounded">
-            <p class="add-text text-center bg-success">Add</p>
+        <div [ngClass]="isBoxSelected('breakfast')" class="border border-secondary rounded" (click)="toggleSelect('breakfast')">
+            <p *ngIf="!meal.breakfast.length > 0" class="add-text text-center bg-success">Add</p>
+            <p *ngIf="meal.breakfast.length > 0" class="meal-text">{{ meal.breakfast }}</p>
         </div>
-        <div class="border border-secondary rounded">
-            <p class="add-text text-center bg-success">Add</p>
+        <div [ngClass]="isBoxSelected('lunch')" class="border border-secondary rounded" (click)="toggleSelect('lunch')">
+            <p *ngIf="!meal.lunch.length > 0" class="add-text text-center bg-success">Add</p>
+            <p *ngIf="meal.lunch.length > 0" class="meal-text">{{ meal.lunch }}</p>
         </div>
-        <div class="border border-secondary rounded">
-            <p class="add-text text-center bg-success">Add</p>
+        <div [ngClass]="isBoxSelected('dinner')" class="border border-secondary rounded" (click)="toggleSelect('dinner')">
+            <p *ngIf="!meal.dinner.length > 0" class="add-text text-center bg-success">Add</p>
+            <p *ngIf="meal.dinner.length > 0" class="meal-text">{{ meal.dinner }}</p>
         </div>
     </div>
 </div>
