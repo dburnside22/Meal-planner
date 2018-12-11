@@ -27,7 +27,6 @@ export class MainCalendarViewComponent implements OnInit {
 
   ngOnInit() {
     this.mealsService.listAllMeals().subscribe((meals: Meal[]) => {
-      console.log('this is a meals', meals);
       this.allMeals = meals;
     });
   }
