@@ -1,3 +1,6 @@
-<p>
-  meal-picker works!
-</p>
+<div class='m-3'*ngFor="let catagory of catagories">
+  <h3>{{ catagory | titlecase }}</h3>
+  <p *ngFor="let item of this[catagory]">
+    {{ item }}
+  </p>
+</div>
