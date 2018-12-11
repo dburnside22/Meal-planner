@@ -8,13 +8,15 @@ import { MainCalendarViewComponent } from './main-calendar-view/main-calendar-vi
 import { CalendarDayComponentComponent } from './calendar-day-component/calendar-day-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IndividualDayViewComponent } from './individual-day-view/individual-day-view.component';
+import { MealPickerComponent } from './meal-picker/meal-picker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainCalendarViewComponent,
     CalendarDayComponentComponent,
-    IndividualDayViewComponent
+    IndividualDayViewComponent,
+    MealPickerComponent
   ],
   imports: [
     BrowserModule,

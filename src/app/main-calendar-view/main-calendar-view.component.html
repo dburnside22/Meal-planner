@@ -5,7 +5,7 @@
   </div>
   <div *ngIf='!openDayView' class="calendar-grid mt-4">
     <div *ngFor="let mealObject of allMeals">
-      <app-calendar-day-component class="text-center" (openDayView)='openDay($event)' [meal]="mealObject"></app-calendar-day-component>
+      <app-calendar-day-component class="text-center" (openDayView)='openDay($event)' [meal]="mealObject" [enteredMeal]="enteredMeal"></app-calendar-day-component>
     </div>
   </div>
   <div *ngIf='openDayView'>
