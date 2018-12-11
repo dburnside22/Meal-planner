@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Meal } from './meal.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class MealsService {
 
   constructor(private http: HttpClient) { }
 
-  updateDay(day: string): Observable<any> {
-    return this.http.put(this.mealsUrl, day);
+  updateDay(meal: Meal): Observable<any> {
+    return this.http.put(`${this.mealsUrl}${meal.id}/`, meal);
   }
 
   listAllMeals(): Observable<any> {
