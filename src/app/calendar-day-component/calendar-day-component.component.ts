@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Meal } from '../meal.interface';
+import { MealsService } from '../meals.service';
 
 @Component({
   selector: 'app-calendar-day-component',
@@ -8,15 +9,22 @@ import { Meal } from '../meal.interface';
 })
 export class CalendarDayComponentComponent implements OnInit {
   @Input() meal: Meal;
+  @Input() enteredMeal: string;
   @Output() openDayView: EventEmitter<object> = new EventEmitter<object>();
   selectedBoxes = [];
   breakfast = '';
   lunch = '';
   dinner = '';
 
-  constructor() { }
+  constructor(private mealsService: MealsService) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    if (this.enteredMeal.length > 0) {
+      this.addMealToSelected();
+    }
   }
 
   openDay() {
@@ -48,8 +56,9 @@ export class CalendarDayComponentComponent implements OnInit {
 
   addMealToSelected() {
     this.selectedBoxes.forEach((box) => {
-      this[box] = this.meal;
+      this.meal[box] = this.enteredMeal;
     });
+    this.mealsService.updateDay(this.meal).subscribe();
     this.selectedBoxes = [];
   }
 
