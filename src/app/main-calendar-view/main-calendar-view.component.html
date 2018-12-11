@@ -2,6 +2,7 @@
   <div class="header-grid text-center">
     <h1 class="title">Meals</h1>
     <input class="search-bar pl-3" type="text" [(ngModel)]="searchBar" (keydown.enter)='enterMeal()'>
+    <button class="btn btn-warning ml-4" [routerLink]="['/meal-picker']">Select Meal</button>
   </div>
   <div *ngIf='!openDayView' class="calendar-grid mt-4">
     <div *ngFor="let mealObject of allMeals">
