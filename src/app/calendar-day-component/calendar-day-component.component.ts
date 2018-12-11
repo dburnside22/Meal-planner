@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChange } from '@angular/core';
 import { Meal } from '../meal.interface';
 import { MealsService } from '../meals.service';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-calendar-day-component',
@@ -24,7 +23,6 @@ export class CalendarDayComponentComponent implements OnInit {
 
   ngOnChanges() {
     if (this.enteredMeal !== '' && this.selectedBoxes.length > 0) {
-      console.log('meal entered', this.enteredMeal);
       this.addMealToSelected();
     }
   }
@@ -47,7 +45,6 @@ export class CalendarDayComponentComponent implements OnInit {
     } else {
       this.selectedBoxes.splice(indexOfMeal, 1);
     }
-    console.log('selectedBoxes', this.selectedBoxes);
   }
 
   isBoxSelected(meal: string) {
