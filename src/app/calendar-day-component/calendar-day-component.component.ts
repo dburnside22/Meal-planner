@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChange } from '@angular/core';
 import { Meal } from '../meal.interface';
+import { MealsService } from '../meals.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-calendar-day-component',
@@ -8,15 +10,23 @@ import { Meal } from '../meal.interface';
 })
 export class CalendarDayComponentComponent implements OnInit {
   @Input() meal: Meal;
+  @Input() enteredMeal: string;
   @Output() openDayView: EventEmitter<object> = new EventEmitter<object>();
   selectedBoxes = [];
   breakfast = '';
   lunch = '';
   dinner = '';
 
-  constructor() { }
+  constructor(private mealsService: MealsService) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+    if (this.enteredMeal !== '' && this.selectedBoxes.length > 0) {
+      console.log('meal entered', this.enteredMeal);
+      this.addMealToSelected();
+    }
   }
 
   openDay() {
@@ -30,13 +40,14 @@ export class CalendarDayComponentComponent implements OnInit {
     );
   }
 
-  toggleSelect(meal: string) {
-    const indexOfMeal = this.selectedBoxes.indexOf(meal);
+  toggleSelect(mealTime: string) {
+    const indexOfMeal = this.selectedBoxes.indexOf(mealTime);
     if (indexOfMeal === -1) {
-      this.selectedBoxes.push(meal);
+      this.selectedBoxes.push(mealTime);
     } else {
       this.selectedBoxes.splice(indexOfMeal, 1);
     }
+    console.log('selectedBoxes', this.selectedBoxes);
   }
 
   isBoxSelected(meal: string) {
@@ -48,8 +59,9 @@ export class CalendarDayComponentComponent implements OnInit {
 
   addMealToSelected() {
     this.selectedBoxes.forEach((box) => {
-      this[box] = this.meal;
+      this.meal[box] = this.enteredMeal;
     });
+    this.mealsService.updateDay(this.meal).subscribe();
     this.selectedBoxes = [];
   }
 
