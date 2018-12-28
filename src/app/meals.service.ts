@@ -24,4 +24,7 @@ export class MealsService {
     return this.http.get(`${this.mealsUrl}${foodCatagory}`);
   }
 
+  addMealItem(mealItem, mealCatagory) {
+    return this.http.post(`${this.mealsUrl}${mealCatagory}`, mealItem);
+  }
 }
