@@ -17,7 +17,7 @@ import { MealPickerComponent } from './meal-picker/meal-picker.component';
     MainCalendarViewComponent,
     CalendarDayComponentComponent,
     IndividualDayViewComponent,
-    MealPickerComponent
+    MealPickerComponent,
   ],
   imports: [
     BrowserModule,

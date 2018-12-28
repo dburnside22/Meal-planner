@@ -1,0 +1,32 @@
+.item-btn {
+  width: 125px;
+  height: 100px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.item-btn:focus{
+  outline: none;
+}
+
+.item-btn:hover{
+  background-color: lightgray;
+}
+
+.add-meal-item-btn {
+  border: dashed 1.5px gray;
+  background: lightgray;
+}
+
+.enterMealItemButtons {
+  display: flex;
+  margin-bottom: 0;
+}
+
+.modal-body {
+  min-height: 200px;
+}
+
+.light-green {
+  background-color: lightgreen;
+}

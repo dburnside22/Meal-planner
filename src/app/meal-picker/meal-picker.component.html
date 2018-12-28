@@ -1,6 +1,26 @@
-<div class='m-3'*ngFor="let catagory of catagories">
-  <h3>{{ catagory | titlecase }}</h3>
-  <p *ngFor="let item of this[catagory]">
-    {{ item }}
-  </p>
-</div>
+<ng-template #pickMeal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ header }}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <ng-container *ngIf="!enterNewMealItem">
+    <div class='m-3 modal-body' *ngFor="let catagory of catagories">
+      <h3>{{ catagory | titlecase }}</h3>
+      <button class="item-btn" [ngClass]="isItemSelected(item)" (click)="toggleMealItemInMenu(item)" *ngFor="let item of this[catagory]">
+        {{ item }}
+      </button>
+      <button class="item-btn add-meal-item-btn" (click)='showAddMealInput()'>Add Meal Item</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="enterNewMealItem">
+    <div class="modal-body">
+        <input type="text" [(value)]="newMealItem.name">
+        <div class="enterMealItemButtons">
+          <button class="btn btn-warning" (click)='cancelAddNewMealItem()'>Cancel</button>
+          <button class="btn btn-success" (click)='addNewMealItem()'>Add</button>
+        </div>
+    </div>
+  </ng-container>
+</ng-template>
